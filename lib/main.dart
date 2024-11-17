@@ -1,47 +1,36 @@
 import 'package:flutter/material.dart';
-import 'screen1.dart';
-import 'screen2.dart';
-
-
+import 'package:logintest/screen1.dart';
 
 main(){
-  runApp(Yoser());
-}
-class Yoser extends StatefulWidget {
-  const Yoser({super.key});
-
-  @override
-  State<Yoser> createState() => _YoserState();
+  runApp(MyApp());
 }
 
-class _YoserState extends State<Yoser> {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Screen1(),
-          routes: {
-        '/firstscreen':(context)=> Screen1(),
-            '/secondscreen':(context)=>screen2(),
-          },
-          theme: ThemeData(
-            textTheme: TextTheme(
-              bodyMedium: TextStyle(
-                fontSize: 15,color: Colors.purpleAccent,
-              ),
-              bodySmall: TextStyle(
-                fontSize: 20,color: Colors.purple,
-              ),
-              bodyLarge: TextStyle(
-                fontSize: 10,color: Colors.grey,
-                fontWeight: FontWeight.bold
-              )
-            ),
-            appBarTheme: AppBarTheme(
-              backgroundColor: Color(0xCDf54242),
-              foregroundColor: Colors.black
-            )
-          ),
-
     );
   }
 }
+
+
+
+// import 'screen1.dart';
+// class myapp extends StatefulWidget {
+//   const myapp({super.key});
+//
+//   @override
+//   State<myapp> createState() => _myappState();
+// }
+//
+// class _myappState extends State<myapp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Screen1(),
+//     );
+//   }
+// }
