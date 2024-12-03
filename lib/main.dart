@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Welcomscreen.dart';
+import 'gestureDetecor.dart';
 
 void main(){
   runApp(Myapp());
@@ -11,7 +11,7 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Welcomscreen(),
+      home: gestureDetecor(),
     );
   }
 }
