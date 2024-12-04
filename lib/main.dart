@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'gestureDetecor.dart';
+import 'splashscreen.dart';
+import 'screens.dart';
 
 void main(){
   runApp(Myapp());
@@ -11,7 +12,7 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: gestureDetecor(),
+      home: splashscreen(),
     );
   }
 }
