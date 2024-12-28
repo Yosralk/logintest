@@ -18,14 +18,14 @@ class _satrtclassState extends State<satrtclass> {
         PageViewModel(
           image: Image.network("https://www.clipartmax.com/png/middle/111-1116730_online-shopping-png-transparent-images-online-shop-icon-png.png"),
           title: "shoppping",
-          decoration: PageDecoration()
+         // decoration: PageDecoration()
         ),
       ],
       back: Text("Back"),
       next: Text("Next"),
       done: Text("Done"),
       onDone: (){},
-      onSkip: (){},
+     // onSkip: (){},
       showBackButton: true,
     );
   }
