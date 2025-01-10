@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'splashscreen.dart';
+import 'Loginscreen.dart';
 
 class Welcomscreen extends StatefulWidget {
   const Welcomscreen({super.key, required List<dynamic> pages});
@@ -43,6 +44,10 @@ class _WelcomscreenState extends State<Welcomscreen> {
               children: [
                 Text("Discount code : YOSER12"),
                 SizedBox(height: 30,),
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
+                },
+                    child: )
                 Column(
                   children: [
                     Container(
