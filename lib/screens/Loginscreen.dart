@@ -9,68 +9,100 @@ class Loginscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
-      child:
-        SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Image(image: AssetImage("images/women.png.jpg"),),
-                SizedBox(height: 20,),
-                Form(child:
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),
-                      child: Column(
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Image at the top
+              Image(image: AssetImage("images/women.png.jpg")),
+              SizedBox(height: 20),
+              // Form and input fields
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                child: Form(
+                  child: Column(
+                    children: [
+                      // Email Input
+                      TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          labelText: "Email",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(17),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      // Password Input
+                      TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.lock_outline),
+                          suffixIcon: Icon(Icons.remove_red_eye_outlined),
+                          labelText: "Password",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(17),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      // Forgot Password link
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: TextButton(
+                          onPressed: () {
+                            // Implement forgot password functionality
+                          },
+                          child: Text("Forgot password?"),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      // Login Button
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Navigationscreen()),
+                            );
+                          },
+                          child: Text("Login"),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.pink,
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(17),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      // Sign-up Text
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          TextFormField(
-                            decoration: InputDecoration(
-                      prefix: Icon(Icons.email),
-                              label:Text("Email"),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(17),
-                              )
-                            ),
+                          Text("Don't have an account?"),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Signupscreen()),
+                              );
+                            },
+                            child: Text("Sign up!"),
                           ),
-                          SizedBox(height: 30,),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                prefix: Icon(Icons.password_outlined),
-                                suffix: Icon(Icons.remove_red_eye_outlined),
-                                label:Text("Password"),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(17),
-                                )
-                            ),
-                          ),
-                          Align(alignment: Alignment.topRight,
-                            child: TextButton(onPressed: (){}, child: Text("Foregt password?"))),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
-                            child: ElevatedButton(onPressed:(){
-                              Navigator.push((context), MaterialPageRoute(builder: (context)=>Navigationscreen()));
-                            }, child:Text("Login"),
-                              style: ElevatedButton.styleFrom(backgroundColor: Colors.pink),
-                            )),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("Dont have account?"),
-                                TextButton(onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Signupscreen()));
-                                },
-                                    child:
-                                Text("Sign up!")),
-                              ],
-                            )
-                          ),
-            
                         ],
                       ),
-                    )
-                )
-              ],
-            ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        )
+        ),
+      ),
     );
   }
 }

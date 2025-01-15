@@ -24,11 +24,11 @@ class Signupscreen extends StatelessWidget {
               prefix: Icon(Icons.person),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(17),
-                
+
               )
           ),
           ),
-              SizedBox(height: 30,),
+          SizedBox(height: 30,),
           TextFormField(
             decoration: InputDecoration(
                 label:Text("Last Name"),
@@ -37,14 +37,14 @@ class Signupscreen extends StatelessWidget {
                 )
             ),
           ),
-              TextFormField(
-              decoration: InputDecoration(
-                  prefix: Icon(Icons.email),
-                  label:Text("Email"),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(17),
-              )
-          ),
+          TextFormField(
+            decoration: InputDecoration(
+                prefix: Icon(Icons.email),
+                label:Text("Email"),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(17),
+                )
+            ),
           ),
           SizedBox(height: 30,),
           TextFormField(
@@ -84,7 +84,7 @@ class Signupscreen extends StatelessWidget {
                   Text("Login!")),
             ],
           )
-      ),
+
 
       ],
     ),

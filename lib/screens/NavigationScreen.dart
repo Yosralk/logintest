@@ -13,13 +13,14 @@ class Navigationscreen extends StatefulWidget {
 }
 
 class _NavigationscreenState extends State<Navigationscreen> {
-  List<Widget> pages=[
+  List<Widget> pages = [
     Homescreens(),
     Cartscreen(),
     Favscreen(),
     Profilescreen(),
   ];
-  int indexPages =0 ;
+  int indexPages = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,26 +28,31 @@ class _NavigationscreenState extends State<Navigationscreen> {
         index: indexPages,
         children: pages,
       ),
-      bottomNavigationBar: AnimatedBottomNavigationBar(icons: [Icons.home,Icons.card_travel_outlined,Icons.favorite,Icons.person],
-          activeIndex: indexPages,
-          //activeColor: Color(0XCDb03c57),
-          inactiveColor: Color(0XCDb5a1a6).withOpacity(0.7),
-          gapLocation: GapLocation.center,
-          iconSize: 22,
-          onTap: (value){
-           setState(() {
-             indexPages= value;
-           });
-          }
-          ) ,
-      floatingActionButtonLocation: FloatingActionButton(onPressed: () {
-
-      },child: Icon(Icons.add),
-        backgroundColor:Color(0XCDf07390) ,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        icons: [
+          Icons.home,
+          Icons.shopping_bag_outlined,
+          Icons.favorite,
+          Icons.person
+        ],
+        activeIndex: indexPages,
+        inactiveColor: Color(0XCDb5a1a6).withOpacity(0.7),
+        gapLocation: GapLocation.center,
+        iconSize: 22,
+        onTap: (value) {
+          setState(() {
+            indexPages = value;
+          });
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Color(0XCDf07390),
         shape: CircleBorder(),
         focusColor: Color(0XCDb03c57),
       ),
-
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

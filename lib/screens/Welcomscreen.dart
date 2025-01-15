@@ -1,86 +1,79 @@
-
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'splashscreen.dart';
 import 'Loginscreen.dart';
 
 class Welcomscreen extends StatefulWidget {
-  const Welcomscreen({super.key, required List<dynamic> pages});
+  const Welcomscreen({Key? key}) : super(key: key);
 
   @override
   State<Welcomscreen> createState() => _WelcomscreenState();
 }
 
 class _WelcomscreenState extends State<Welcomscreen> {
-  final introkey =GlobalKey<_WelcomscreenState>();
-  PageDecoration PageDecoration =PageDecoration(
-    titleTextStyle:TextStyle(
+  final introKey = GlobalKey<IntroductionScreenState>();
+
+  final PageDecoration pageDecoration = PageDecoration(
+    titleTextStyle: TextStyle(
       fontSize: 40,
       fontWeight: FontWeight.bold,
     ),
-    pageColor:Colors.white
-    bodyTextStyle:TextStyle(
+    bodyTextStyle: TextStyle(
       fontSize: 25,
-    )
+    ),
+    pageColor: Colors.white,
   );
+
   @override
   Widget build(BuildContext context) {
-    return Welcomscreen(
-      key: introkey,
-      pages:[
-      PageViewModel(
-
-        image: Image.asset("images/shopping.png.jpg"),
-        title: "shop Now!",
-        decoration:PageDecoration
-      ),
+    return IntroductionScreen(
+      key: introKey,
+      pages: [
         PageViewModel(
-            image: Image.asset("images/sale.png.jpg"),
-            title: "Dicount code!",
-            decoration:PageDecoration,
-          footer: Container(
-            color: Color(0XCDf03c81),
-            child: Column(
-              children: [
-                Text("Discount code : YOSER12"),
-                SizedBox(height: 30,),
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Loginscreen()));
-                },
-                    child: )
-                Column(
-                  children: [
-                    Container(
-                      child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20),
-                        child: ElevatedButton(onPressed: (){}, child: Text("Let's go",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0XCD870519),),
-                        ),
-                          style: ElevatedButton.styleFrom(backgroundColor: Color(0XCD8f0d3f),),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+          image: Image.asset("images/shopping.png.jpg"),
+          title: "Shop Now!",
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          image: Image.asset("images/sale.png.jpg"),
+          title: "Discount Code!",
+          body: "Discount code: YOSER12",
+          decoration: pageDecoration,
+          footer: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Loginscreen()),
+              );
+            },
+            child: Text(
+              "Let's Go",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Color(0xFF8F0D3F),
             ),
           ),
         ),
         PageViewModel(
-            image: Image.asset("images/delvary.png.jpg"),
-            title: "order Now!",
-            decoration:PageDecoration
+          image: Image.asset("images/delvary.png.jpg"),
+          title: "Order Now!",
+          decoration: pageDecoration,
         ),
       ],
-      back:Text("back"),
-      next:Text("Next"),
-      done:Text("Done"),
-      showBackButton:true,
-
-
+      back: Text("Back"),
+      next: Text("Next"),
+      done: Text("Done"),
+      onDone: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Loginscreen()),
+        );
+      },
+      showBackButton: true,
     );
   }
 }
