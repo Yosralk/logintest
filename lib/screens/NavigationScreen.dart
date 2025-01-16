@@ -14,7 +14,7 @@ class Navigationscreen extends StatefulWidget {
 
 class _NavigationscreenState extends State<Navigationscreen> {
   List<Widget> pages = [
-    Homescreens(),
+    HomeScreens(),
     Cartscreen(),
     Favscreen(),
     Profilescreen(),
