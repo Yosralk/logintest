@@ -29,12 +29,12 @@ class _WelcomscreenState extends State<Welcomscreen> {
       key: introKey,
       pages: [
         PageViewModel(
-          image: Image.asset("images/shopping.png.jpg"),
+          image: Image.asset("images/shopping.jpg"),
           title: "Shop Now!",
           decoration: pageDecoration,
         ),
         PageViewModel(
-          image: Image.asset("images/sale.png.jpg"),
+          image: Image.asset("images/sale.jpg"),
           title: "Discount Code!",
           body: "Discount code: YOSER12",
           decoration: pageDecoration,
@@ -59,7 +59,7 @@ class _WelcomscreenState extends State<Welcomscreen> {
           ),
         ),
         PageViewModel(
-          image: Image.asset("images/delvary.png.jpg"),
+          image: Image.asset("images/delvary.jpg"),
           title: "Order Now!",
           decoration: pageDecoration,
         ),

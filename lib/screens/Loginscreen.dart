@@ -14,7 +14,7 @@ class Loginscreen extends StatelessWidget {
           child: Column(
             children: [
               // Image at the top
-              Image(image: AssetImage("images/women.png.jpg")),
+              Image(image: AssetImage("images/women.jpg")),
               SizedBox(height: 20),
               // Form and input fields
               Padding(

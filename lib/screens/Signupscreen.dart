@@ -12,7 +12,7 @@ class Signupscreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
                 children: [
-            Image(image: AssetImage("images/sho.png.jpg"),),
+            Image(image: AssetImage("images/sho.jpg"),),
           Form(child:
           Padding(
               padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),

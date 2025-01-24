@@ -3,9 +3,9 @@ import 'product.dart';
 import 'DetailsScreen.dart';
 
 class HomeScreens extends StatefulWidget {
-  const HomeScreens({super.key});
+   HomeScreens({super.key });
 
-  static const List<String> tabs = [
+  static const tabs = <String>[
     "All",
     "Category",
     "Top",
@@ -13,14 +13,14 @@ class HomeScreens extends StatefulWidget {
   ];
 
   final List<product> products = [
-    product('Womens Jacket', 20, 'images/img1.jpg'),
+    product('Womens Jacket',20, 'images/img1.jpg'),
     product('Womens Jeans', 15, 'images/img2.jpg'),
-    product('Girls Clothes', 10, 'images/img3.jpg'),
-    product('Summer Dresses', 12, 'images/img4.jpg'),
-    product('Womens Heels', 22, 'images/img5.jpg'),
-    product('Womens Makeup', 25, 'images/img6.jpg'),
-    product('Shoes for Men', 13, 'images/img7.jpg'),
-    product('Womens Shirt', 5, 'images/img8.jpg'),
+    product('Girls Clothes',10, 'images/img3.jpg'),
+    product('Summer Dresses',12, 'images/img4.jpg'),
+    product('Womens Heels' ,22, 'images/img5.jpg'),
+    product('Womens Makeup',25, 'images/img6.jpg'),
+    product('Shoes for Men',13, 'images/img7.jpg'),
+    product('Womens Shirt',5, 'images/img8.jpg'),
     product('Womens Suits', 9, 'images/img9.jpg'),
   ];
 
@@ -145,7 +145,7 @@ class _HomeScreensState extends State<HomeScreens> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>DetailsScreen(product: product),
+                          builder: (context) =>DetailsScreen(products: product),
                         ),
                       );
                     },
@@ -238,7 +238,7 @@ class _HomeScreensState extends State<HomeScreens> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailsScreen(product: product),
+                          builder: (context) => DetailsScreen(products: product),
                         ),
                       );
                     },
