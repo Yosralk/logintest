@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 
 class Availablesize extends StatefulWidget {
-  String Size;
+  final String size;
 
-   Availablesize({super.key, required this.Size});
+  const Availablesize({super.key, required this.size});
 
   @override
-  State<Availablesize> createState() => _AvailablesizeState();
+  _AvailablesizeState createState() => _AvailablesizeState();
 }
 
 class _AvailablesizeState extends State<Availablesize> {
+  bool isSelected = false;
+
   @override
-  bool isSelcetd =false;
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         setState(() {
-          isSelcetd =!isSelcetd;
+          isSelected = !isSelected;
         });
       },
       child: Container(
         child: Center(
-          child: Text(widget.Size,
-            style: TextStyle(
+          child: Text(
+            widget.size,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -35,7 +37,7 @@ class _AvailablesizeState extends State<Availablesize> {
             width: 2,
           ),
           borderRadius: BorderRadius.circular(12),
-          color: isSelcetd ? Colors.pink :Colors.transparent
+          color: isSelected ? Colors.pink : Colors.transparent,
         ),
       ),
     );

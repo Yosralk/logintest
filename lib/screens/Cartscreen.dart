@@ -14,6 +14,9 @@ class _CartScreenState extends State<CartScreen> {
     Item(name: 'Product 3', price: 150),
   ];
 
+  double get totalPrice =>
+      cartItems.fold(0, (sum, item) => sum + item.price);
+
   void _removeItem(int index) {
     setState(() {
       cartItems.removeAt(index);
@@ -25,20 +28,52 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shopping Cart'),
+        backgroundColor: Colors.blue,
       ),
       body: cartItems.isEmpty
           ? const Center(child: Text('Your shopping cart is empty.'))
-          : ListView.builder(
-        itemCount: cartItems.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(cartItems[index].name),
-            trailing: IconButton(
-              icon: const Icon(Icons.remove_circle),
-              onPressed: () => _removeItem(index),
+          : Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: cartItems.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(cartItems[index].name),
+                  subtitle: Text('${cartItems[index].price} JOD'),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.remove_circle),
+                    onPressed: () => _removeItem(index),
+                  ),
+                );
+              },
             ),
-          );
-        },
+          ),
+          Container(
+            padding: const EdgeInsets.all(16),
+            color: Colors.grey[200],
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Total:',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  '${totalPrice.toStringAsFixed(2)} JOD',
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

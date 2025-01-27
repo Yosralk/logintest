@@ -29,39 +29,43 @@ class _WelcomscreenState extends State<Welcomscreen> {
       key: introKey,
       pages: [
         PageViewModel(
-          body: "llllllllllll",
-          image:Image(image: AssetImage("images/img1.jpg")),
+          body: "                  ",
+          image:Image(image: AssetImage("images/still.jpg")),
           title: "Shop Now!",
           decoration: pageDecoration,
         ),
         PageViewModel(
-
           image: Image.asset("images/sale.jpg"),
           title: "Discount Code!",
           body: "Discount code: YOSER12",
           decoration: pageDecoration,
-          footer: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Loginscreen()),
-              );
-            },
-            child: Text(
-              "Let's Go",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+          footer: Column(
+            children: [
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Loginscreen()),
+                  );
+                },
+                child: Text(
+                  "Let's Go",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF8F0D3F),
+                ),
               ),
-            ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFF8F0D3F),
-            ),
+            ],
           ),
         ),
         PageViewModel(
-          body: "aaaaaaaaaaaaaaaa",
+          body: "               ",
           image: Image.asset("images/delvary.jpg"),
           title: "Order Now!",
           decoration: pageDecoration,

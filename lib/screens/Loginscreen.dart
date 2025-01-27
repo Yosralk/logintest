@@ -8,24 +8,57 @@ class Loginscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _formKey = GlobalKey<FormState>();
+    String email = '';
+    String password = '';
+
+    void loginButton() {
+      if (_formKey.currentState!.validate()) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreens()),
+        );
+      }
+    }
+
+    void forgetPassword() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Reset Password"),
+            content: Text("A password reset link has been sent to your email."),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("OK"),
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Material(
       color: Colors.white,
       child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Image at the top
-              Image(image: AssetImage("images/women.jpg"),
-              width: 200,
-              height: 150,),
+              Image(
+                image: AssetImage("images/women.jpg"),
+                width: 200,
+                height: 150,
+              ),
               SizedBox(height: 20),
-              // Form and input fields
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                 child: Form(
+                  key: _formKey,
                   child: Column(
                     children: [
-                      // Email Input
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
@@ -35,9 +68,19 @@ class Loginscreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(17),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your email';
+                          } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                            return 'Please enter a valid email';
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          email = value;
+                        },
                       ),
                       SizedBox(height: 30),
-                      // Password Input
                       TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
@@ -48,14 +91,24 @@ class Loginscreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(17),
                           ),
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your password';
+                          } else if (value.length < 6) {
+                            return 'Password must be at least 6 characters';
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          password = value;
+                        },
                       ),
                       SizedBox(height: 10),
-                      // Forgot Password link
                       Align(
                         alignment: Alignment.topRight,
                         child: TextButton(
                           onPressed: () {
-                            // Implement forgot password functionality
+                            forgetPassword();
                           },
                           child: Text("Forgot password?"),
                         ),
@@ -65,12 +118,7 @@ class Loginscreen extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => HomeScreens()),
-                            );
-                          },
+                          onPressed: loginButton,
                           child: Text("Login"),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.pink,

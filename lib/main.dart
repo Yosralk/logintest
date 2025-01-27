@@ -3,16 +3,21 @@ import 'screens/splashscreen.dart';
 
 
 void main(){
-  runApp(Myapp());
+  runApp(ClothingStoreApp());
 }
-class Myapp extends StatelessWidget {
-  const Myapp({super.key});
+class ClothingStoreApp extends StatelessWidget {
+  const ClothingStoreApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Clothing Store',
       theme: ThemeData(
-
+        primarySwatch: Colors.pink,
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 16),
+          titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       home: SplashScreenClass(),
