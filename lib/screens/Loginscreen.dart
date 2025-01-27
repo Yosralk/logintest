@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logintest/screens/Homescreens.dart';
 import 'package:logintest/screens/NavigationScreen.dart';
 import 'package:logintest/screens/Signupscreen.dart';
 
@@ -14,7 +15,9 @@ class Loginscreen extends StatelessWidget {
           child: Column(
             children: [
               // Image at the top
-              Image(image: AssetImage("images/women.jpg")),
+              Image(image: AssetImage("images/women.jpg"),
+              width: 200,
+              height: 150,),
               SizedBox(height: 20),
               // Form and input fields
               Padding(
@@ -65,7 +68,7 @@ class Loginscreen extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Navigationscreen()),
+                              MaterialPageRoute(builder: (context) => HomeScreens()),
                             );
                           },
                           child: Text("Login"),

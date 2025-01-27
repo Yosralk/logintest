@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'dart:async'; // Import dart:async for Timer
 import 'Welcomscreen.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashScreenClass extends StatefulWidget {
+  const SplashScreenClass({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SplashScreenClassState createState() => _SplashScreenClassState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenClassState extends State<SplashScreenClass> {
   @override
   void initState() {
     super.initState();
@@ -25,8 +25,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        color: Color(0Xbf9752),
+
         decoration: BoxDecoration(
+          color: Color(0xcdbf9752),
           image: DecorationImage(
             image: AssetImage('images/ss.jpg'),
             fit: BoxFit.cover,
@@ -50,6 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 "Enjoy in Your Shopping!",
                 style: Theme.of(context).textTheme.labelMedium,
               ),
+
             ],
           ),
         ),

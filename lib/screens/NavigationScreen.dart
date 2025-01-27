@@ -48,9 +48,9 @@ class _NavigationscreenState extends State<Navigationscreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
-        backgroundColor: Color(0XCDf07390),
+        backgroundColor: Color(0xCDf07390),
         shape: CircleBorder(),
-        focusColor: Color(0XCDb03c57),
+        focusColor: Color(0xCDb03c57),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

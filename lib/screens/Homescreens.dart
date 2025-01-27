@@ -32,6 +32,8 @@ class _HomeScreensState extends State<HomeScreens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      backgroundColor: Colors.blue,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -103,7 +105,7 @@ class _HomeScreensState extends State<HomeScreens> {
                 ],
                 borderRadius: BorderRadius.circular(10),
                 image: const DecorationImage(
-                  image: AssetImage("images/ss.png"),
+                  image: AssetImage("images/ss.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -111,7 +113,7 @@ class _HomeScreensState extends State<HomeScreens> {
             const SizedBox(height: 20),
             // Tabs Row
             SizedBox(
-              height: 20,
+              height: 50,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: HomeScreens.tabs.length,
@@ -131,11 +133,13 @@ class _HomeScreensState extends State<HomeScreens> {
                 },
               ),
             ),
-            const SizedBox(height: 10),
+            // const SizedBox(height: 10),
             // Products Horizontal List
-            SizedBox(
-              height: 200,
+            Expanded(
+              flex: 4,
               child: ListView.builder(
+                shrinkWrap: true,
+                padding: EdgeInsets.only(right: 20),
                 scrollDirection: Axis.horizontal,
                 itemCount: widget.products.length,
                 itemBuilder: (context, index) {
@@ -149,61 +153,48 @@ class _HomeScreensState extends State<HomeScreens> {
                         ),
                       );
                     },
-                    child: SizedBox(
-                      width: 160,
-                      child: Stack(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ClipRRect(
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                color: const Color(0xFF8F3340),
+                                width: 100,
+                                height: 100,
+                                child: Image.asset(
+                                  product.images,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                               SizedBox(height: 5),
+                              Text(
+                                product.titles,
+                                style:  TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Text("\$${product.prices}"),
+                            ],
+                          ),
+                        ),
+                        // Favorite Icon
+                        Positioned(
+                          right: 10,
+                          top: 10,
+                          child: Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 150,
-                                    width: 150,
-                                    color: const Color(0xFF8F3340),
-                                    child: Image.asset(
-                                      product.images,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                    child: Text(
-                                      product.titles,
-                                      style: const TextStyle(fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                    child: Text("\$${product.prices}"),
-                                  ),
-                                ],
-                              ),
+                              color: Colors.white,
+                            ),
+                            child:  Icon(
+                              Icons.favorite,
+                              color: Color(0xFF8C1138),
                             ),
                           ),
-                          // Favorite Icon
-                          Positioned(
-                            right: 10,
-                            top: 10,
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.white,
-                              ),
-                              child: const Icon(
-                                Icons.favorite,
-                                color: Color(0xFF8C1138),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   );
                 },
@@ -221,9 +212,9 @@ class _HomeScreensState extends State<HomeScreens> {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
             // Grid View for All Items
             Expanded(
+              flex: 8,
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
