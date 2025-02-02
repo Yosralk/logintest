@@ -109,7 +109,6 @@ class Signupscreen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              // إذا كان النموذج صالحًا، انتقل إلى صفحة تسجيل الدخول
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => Loginscreen()),

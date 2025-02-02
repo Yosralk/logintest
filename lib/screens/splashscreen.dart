@@ -13,7 +13,7 @@ class _SplashScreenClassState extends State<SplashScreenClass> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 3), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Welcomscreen()),
@@ -25,7 +25,6 @@ class _SplashScreenClassState extends State<SplashScreenClass> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-
         decoration: BoxDecoration(
           color: Color(0xcdbf9752),
           image: DecorationImage(

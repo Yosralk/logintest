@@ -13,7 +13,7 @@ class PaymentScreen extends StatelessWidget {
         backgroundColor: Colors.pink,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             Text('Total Amount: $totalAmount JOD', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),

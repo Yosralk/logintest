@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:logintest/screens/Homescreens.dart';
-import 'package:logintest/screens/NavigationScreen.dart';
 import 'package:logintest/screens/Signupscreen.dart';
 
 class Loginscreen extends StatelessWidget {
@@ -14,31 +13,8 @@ class Loginscreen extends StatelessWidget {
 
     void loginButton() {
       if (_formKey.currentState!.validate()) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreens()),
-        );
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreens()));
       }
-    }
-
-    void forgetPassword() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Reset Password"),
-            content: Text("A password reset link has been sent to your email."),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text("OK"),
-              ),
-            ],
-          );
-        },
-      );
     }
 
     return Material(
@@ -47,11 +23,7 @@ class Loginscreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Image(
-                image: AssetImage("images/women.jpg"),
-                width: 200,
-                height: 150,
-              ),
+              Image(image: AssetImage("images/women.jpg"), width: 200, height: 150),
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
@@ -64,9 +36,7 @@ class Loginscreen extends StatelessWidget {
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
                           labelText: "Email",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(17),
-                          ),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(17)),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -85,11 +55,8 @@ class Loginscreen extends StatelessWidget {
                         obscureText: true,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.lock_outline),
-                          suffixIcon: Icon(Icons.remove_red_eye_outlined),
                           labelText: "Password",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(17),
-                          ),
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(17)),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -103,18 +70,7 @@ class Loginscreen extends StatelessWidget {
                           password = value;
                         },
                       ),
-                      SizedBox(height: 10),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: TextButton(
-                          onPressed: () {
-                            forgetPassword();
-                          },
-                          child: Text("Forgot password?"),
-                        ),
-                      ),
                       SizedBox(height: 20),
-                      // Login Button
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: ElevatedButton(
@@ -123,24 +79,18 @@ class Loginscreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.pink,
                             padding: EdgeInsets.symmetric(vertical: 15),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(17),
-                            ),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(17)),
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      // Sign-up Text
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text("Don't have an account?"),
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Signupscreen()),
-                              );
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Signupscreen()));
                             },
                             child: Text("Sign up!"),
                           ),

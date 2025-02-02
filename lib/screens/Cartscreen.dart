@@ -14,8 +14,7 @@ class _CartScreenState extends State<CartScreen> {
     Item(name: 'Product 3', price: 150),
   ];
 
-  double get totalPrice =>
-      cartItems.fold(0, (sum, item) => sum + item.price);
+  double get totalPrice => cartItems.fold(0, (sum, item) => sum + item.price);
 
   void _removeItem(int index) {
     setState(() {
@@ -28,7 +27,7 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shopping Cart'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blueGrey,
       ),
       body: cartItems.isEmpty
           ? const Center(child: Text('Your shopping cart is empty.'))

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'product.dart';
 
@@ -21,7 +20,6 @@ class DetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-
             Container(
               height: 250,
               width: 250,
